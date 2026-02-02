@@ -22,8 +22,11 @@
     h1 {
       color: #ff4d6d;
     }
-    p {
+    #countdown {
       font-size: 18px;
+      margin: 15px 0;
+      color: #ff4d6d;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -31,11 +34,39 @@
 
   <div class="card">
     <h1>Happy Birthday 🎂</h1>
-    <h2>PETER</h2>
-    <p>Yaani uko thate foour😂 Happy birthday Peter zeeka vizuri😘</p>
+    <h2>PETER🤗</h2>
+
+    <div id="countdown"></div>
+
+    <p>Wishing you a happy birthday 💖</p>
     <p>From: BREE😎</p>
   </div>
 
+<script>
+  
+  const birthday = new Date("1992-02-02 00:00:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = birthday - now;
+
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("countdown").innerHTML =
+        `${days} days ${hours} hrs ${minutes} mins ${seconds} secs 🎉`;
+    } else {
+      document.getElementById("countdown").innerHTML =
+        "🎉 TODAY IS THE DAY! HAPPY BIRTHDAY 🎉...34 looks good on you";
+    }
+  }, 1000);
+</script>
+
 </body>
 </html>
+
+
 
